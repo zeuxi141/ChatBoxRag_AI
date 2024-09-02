@@ -1,0 +1,109 @@
+review_ID,Review
+1,"1 Object-Oriented Design 1.1 Classes, Objects and Interfaces Object-oriented programs are made up of objects ."
+2,An object packages both data and the procedures that operate on that data.
+3,The procedures are typically called methods orop- erations .
+4,An object performs an operation when it receives a request (or message) from a client.
+5,Requests are the only way to get an object to execute an operation.
+6,Operations are the only way to change an object's internal data.
+7,"Because of these restrictions, the object's internal state is said to be encapsulated ; it cannot be accessed directly, and its representation is invisible from outside the object."
+8,"Every operation declared by an object species the operation's name, the objects it takes as parameters, and the operation's return value."
+9,This is known as the operation's signature .
+10,The set of all signatures dened by an object's operations is called the interface to the object.
+11,An object's interface characterizes the complete set of requests that can be sent to the object.
+12,Any request that matches a signature in the object's interface may be sent to the object.
+13,Atype is a name used to denote a particular interface.
+14,"An object may have many types, and widely dierent objects can share a type."
+15,The class denes the object's internal state and the implementation of its operations.
+16,"In contrast, an object's type only refers to its interface | the set of requests to which it can respond."
+17,"Part of an object's interface may be characterized by one type, and other parts by other types."
+18,Two objects of the same type need only share parts of their interfaces.
+19,Interfaces can contain other interfaces as subsets.
+20,We say that a type is a subtype of another if its interface contains the interface of its supertype.
+21,Often we speak of a subtype inheriting the interface of its supertype.
+22,Objects are created by instantiating a class .
+23,The object is said to be an instance of the class.
+24,The process of instantiating a class allocates storage for the object's internal data (made up of instance variables) and associates the operations with these data.
+25,Many similar instances of an object can be created by instantiating a class.
+26,A useful analogy is as follows: A blueprint for a house design is like a class description.
+27,All the houses built from that blueprint are objects of that class.
+28,A given house is an instance.
+29,"1.2 Polymorphism The run-time association of a request to an object and one of its operations is known as dynamic binding , which means that issuing a request doesn't commit you to a particular implementation until run-time."
+30,"Consequently, you can write programs that expect an object with a particular interface, knowing that any object that has the correct interface will accept the request."
+31,"Moreover, dynamic binding lets you substitute objects that have identical interfaces for each other at run-time."
+32,"This substitutability is known as polymorphism , and it's a key concept in object-oriented systems."
+33,It lets a client object make few assumptions about other objects beyond supporting a particular interface.
+34,"Polymorphism simplies the denitions of clients, decouples objects from each other, and lets them vary their relationships to each other at run-time."
+35,21.3 Inheritence New classes can be dened in terms of existing classes using class inheritance .
+36,Class in- heritance is basically just a mechanism for extending an application's functionality by reusing functionality in parent classes.
+37,"When a subclass inherits from a parent class, it includes the def- initions of all the data and operations that the parent class denes."
+38,"Objects that are instances of the subclass will contain all data dened by the subclass and its parent classes, and they'll be able to perform all operations dened by this subclass and its parents."
+39,Inheritance's ability to dene families of objects with identical interfaces (usually by inheriting from an abstract class) is what allows polymorphism to work.
+40,Implementation dependencies can cause problems when you're trying to reuse a subclass.
+41,"Should any aspect of the inherited implementation not be appropriate for new problem do- mains, the parent class must be rewritten or replaced by something more appropriate."
+42,This dependency limits exibility and ultimately reusability.
+43,"One cure for this is to inherit only from abstract classes, since they usually provide little or no implementation."
+44,Anabstract class is one whose main purpose is to dene a common interface for its subclasses.
+45,An abstract class will defer some or all of its implementation to operations dened in subclasses; hence an abstract class cannot be instantiated.
+46,The operations that an abstract class declares but doesn't implement are called abstract operations.
+47,Classes that aren't abstract are called concrete classes .
+48,Subclasses can rene and redene behaviors of their parent classes.
+49,"More specically, a class may override an operation dened by its parent class."
+50,Overriding gives subclasses a chance to handle requests instead of their parent classes.
+51,"Class inheritance lets you dene classes simply by extending other classes, making it easy to dene families of objects having related functionality."
+52,"In contrast to class inheritance, interface inheritance or subtyping describes when an object can be used in place of another."
+53,Amixin class is a class that's intended to provide an optional interface or methods to other classes without having to be the parent class of those other classes.
+54,It's similar to an abstract class in that it's not intended to be instantiated.
+55,Mixin classes require multiple inheritance.
+56,"1.4 Interfaces Program to an interface, not an implementation This principle of object-oriented design has two main benets: 1."
+57,"Clients remain unaware of the specic types of objects they use, as long as the objects adhere to the interface that clients expect."
+58,2.
+59,Clients remain unaware of the classes that implement these objects.
+60,Clients only know about the abstract classes dening the interface.
+61,This greatly reduces implementation dependencies between subsystems.
+62,Don't declare variables to be instances of particular concrete classes.
+63,"Instead, commit only to an interface dened by an abstract class."
+64,"Though you will need to instantiate concrete classes in order to specify a particular implementation somewhere in your system { the creational patterns ensure that your system is written in terms of interfaces, not implementations."
+65,31.5 Composition Favor object composition over class inheritance.
+66,The two most common techniques for reusing functionality in object-oriented systems are class inheritance and object composition.
+67,Reuse by subclassing is often referred to as white-box reuse .
+68,"The term \white-box"" refers to visibility: With inheritance, the internals of parent classes are often visible to subclasses."
+69,Object composition is an alternative to class inheritance.
+70,"Here, new functionality is obtained by assembling or composing objects to get more complex functionality."
+71,Object composition requires that the objects being composed have well-dened interfaces.
+72,"This style of reuse is called black-box reuse , because no internal details of objects are visible."
+73,"Objects appear only as \black boxes."" Because objects are accessed solely through their interfaces, we don't break encapsulation."
+74,Any object can be replaced at run-time by another as long as it has the same type.
+75,"Moreover, because an object's implementation will be written in terms of object interfaces, there are substantially fewer implementation dependencies."
+76,"Additionally, favoring object composition over class inheritance helps you keep each class en- capsulated and focused on one task."
+77,Your classes and class hierarchies will remain small and will be less likely to grow into unmanageable monsters.
+78,"On the other hand, a design based on object composition will have more objects (if fewer classes), and the system's behavior will depend on their inter relationships instead of being dened in one class."
+79,1.6 Delegation Delegation is a way of making composition as powerful for reuse as inheritance.
+80,"In delegation, two objects are involved in handling a request: a receiving object delegates operations to its delegate."
+81,This is analogous to subclasses deferring requests to parent classes.
+82,Delegation is an extreme example of object composition.
+83,It shows that you can always replace inheritance with object composition as a mechanism for code reuse.
+84,"For example, instead of making class Window a subclass of Rectangle (because windows happen to be rectangular), the Window class might reuse the behavior of Rectangle by keeping a Rectangle instance variable and delegating Rectangle-specic behavior to it."
+85,"In other words, instead of a Window being a Rectangle, it would have a Rectangle and may call the Area method."
+86,The main advantage of delegation is that it makes it easy to compose behaviors at run-time and to change the way they're composed.
+87,"Our window can become circular at run-time simply by replacing its Rectangle instance with a Circle instance, assuming Rectangle and Circle have the same type."
+88,"Delegation has a disadvantage it shares with other techniques that make software more exible through object composition: Dynamic, highly parameterized software is harder to understand than more static software.There are also run-time ineciencies, but the human ineciencies are more important in the long run."
+89,Delegation is a good design choice only when it simplies more than it complicates.
+90,41.7 Parameterized Types Parameterized types give us a third way (in addition to class inheritance and object compo- sition) to compose behavior in object-oriented systems.
+91,This technique lets you dene a type without specifying all the other types it uses.
+92,The unspecied types are supplied as parame- ters at the point of use.
+93,"For example, a List class is parameterized by the type of elements it contains."
+94,"1.8 Run-Time and Compile-Time Structures Object composition lets you change the behavior being composed at run-time, but it also re- quires indirection and can be less ecient."
+95,Inheritance lets you provide default implementations for operations and lets subclasses override them.
+96,Parameterized types let you change the types that a class can use.
+97,But neither inheritance nor parameterized types can change at run-time.
+98,Many design patterns (in particular those that have object scope) capture the distinction be- tween compile-time and run-time structures explicitly.
+99,Composite and Decorator patterns are especially useful for building complex run-time structures.
+100,Observer involves run-time struc- tures that are often hard to understand unless you know the pattern.
+101,Chain of Responsibility also results in communication patterns that inheritance doesn't reveal.
+102,"In general, the run-time structures aren't clear from the code until you understand the patterns."
+103,"1.9 SOLID Principles Single-responsibility principle { A class should only have a single responsibility, that is, only changes to one part of the software's specication should be able to aect the specication of the class."
+104,"Open{closed principle { Software entities should be open for extension, but closed for modication."
+105,Liskov substitution principle { Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+106,Interface segregation principle { Many client-specic interfaces are better than one general-purpose interface.
+107,"Dependency inversion principle { One should depend upon abstractions, not concre- tions."
+108,5

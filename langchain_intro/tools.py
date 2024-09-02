@@ -1,1 +1,0 @@
-messages = [SystemMessage(content="""You're an assistant knowledgeable abouthealthcare. Only answer healthcare-related questions."""),HumanMessage(content="What is Medicaid managed care?"),]

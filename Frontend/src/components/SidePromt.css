@@ -1,0 +1,16 @@
+.side {
+  margin: 0;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 300px;
+  background-color: rgba(86, 88, 90, 0.8);
+  max-height: 90vh;
+  padding: 1rem 2rem;
+  overflow: auto;
+}
+.side .content {
+  color: white;
+}
+.side .content ol {
+  padding: 0;
+}/*# sourceMappingURL=SidePromt.css.map */

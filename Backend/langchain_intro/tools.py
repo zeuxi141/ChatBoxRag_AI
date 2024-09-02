@@ -1,0 +1,1 @@
+messages = [SystemMessage(content="""You're an assistant knowledgeable Oriented Object Programming. Only answer Oriented Object Programming."""),HumanMessage(content="What is OOP?"),]
