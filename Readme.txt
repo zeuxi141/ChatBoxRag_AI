@@ -9,5 +9,5 @@ ProcessPrepareData.ipynb: you move code to another file .py to run. This file wi
 
 
 UI:
-![Example Image](./Example.png)
+![Project Image](Example.png)
 
