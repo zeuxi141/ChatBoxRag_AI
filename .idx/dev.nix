@@ -8,6 +8,7 @@
     pkgs.python311
     pkgs.python311Packages.pip
     pkgs.mailutils
+    pkgs.openssh
   ];
   # Sets environment variables in the workspace
   env = {};
